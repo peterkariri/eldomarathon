@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - Manage Properties</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Manage Properties</h1>
+
+  <div class="property-search">
+    <h2>Search Properties</h2>
+    <form>
+      <label for="address">Search by Address:</label>
+      <input type="text" id="address" name="address" placeholder="Enter address">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <div class="property-list">
+    <h2>Your Properties</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Address</th>
+          <th>Tenant</th>
+          <th>Rent</th>
+          <th>Lease End</th>
+          <th>Status</th>
+          <th>Requests</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>123 Main St.</td>
+          <td>John Doe</td>
+          <td>$1,200/month</td>
+          <td>2024-07-31</td>
+          <td>Occupied</td>  <td><a href="#">View Requests (2)</a></td>
+          <td>
+            <a href="#">Edit Property</a>
+            <a href="#">View Leases</a>
+          </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+
+  <div class="tenant-requests-modal" id="tenantRequestsModal">
+    <div class="modal-content">
+      <h2>Tenant Requests for <span id="requestPropertyAddress"></span> (Replace with address)</h2>  <ul>
+        <li>
+          <b>John Doe (Tenant)</b> - Submitted a maintenance request on 2024-04-25 for a plumbing leak in the kitchen.
+          <br>
+          <button>Mark Completed</button>
+        </li>
+        </ul>
+      <button onclick="document.getElementById('tenantRequestsModal').style.display='none'">Close</button>
+    </div>
+  </div>
+
+</body>
+</html>

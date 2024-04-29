@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheet/home.css">
+    <title>Home</title>
+</head>
+<body>
+  
+  <header>
+    <%- include("_headerhome.ejs") %>
+  </header>
+  <div class="container">
+
+    <main>
+     
+     <div class="header">
+      <h1>Modern House Make A Better Life </h1>
+        <p>With times Changing drastically,we have decided to bring the best of technology to intergret with your house network
+          <br>Do not be left behind !!!Go with the change
+        </p>
+
+        <a href="/about"><button type="submit" class="learn">LEARN MORE</button></a>
+     </div>
+        
+     <div class="more">
+      <a href="/login"><button type="submit" class="btn-1">Lease Property</button></a> 
+    <a href="/login"><button type="submit" class="btn-2">Rent Property</button>s</a>
+   </div>
+    </main>
+   
+    <div class="next">
+      <div class="child">
+        <p id="pp">ENTER KEYWORD</p>
+        <h3>Enter keyword</h3>
+      </div>
+      
+      <div class="child">
+
+        <label for="bedrooms">Bedrooms:</label>
+        <select id="bedrooms">
+          <option value=""></option>
+          <option value="1">One Bedroom</option>
+          <option value="2">Two Bedrooms</option>
+          <option value="3">Three Bedrooms</option>
+          <option value="4">Four Bedrooms</option>
+        </select>
+        
+      </div>
+      <div class="child">
+        <p id="pp">LOCATION</p>
+        <h3><a href="/googlemaps.com">Search Location</a></h3>
+      </div>
+      <div class="child">
+        <p id="pp">PRICE LIMIT</p>
+        <h3>negotiable</h3>
+      </div>
+      <div class="child-2">
+        <a href="/login" class="get">Get Started</a>
+      </div>
+    </div>
+  </div>
+  
+ <%- include('_footer.ejs') %>
+
+</body>
+</html>

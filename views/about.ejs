@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+    
+        main {
+          padding: 20px;
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+    
+        #who-we-are,
+        #what-we-do {
+          margin-bottom: 20px;
+          
+        }
+    
+       
+       .img-2 {
+          display: flex;
+          flex-direction: row-reverse;
+          align-items: center;
+          margin-bottom: 20px;
+          width: 100%;
+          margin-right: 20px;
+          
+        }
+        .img-2  img{
+          width:40% ;
+        }
+        .img-2 p{
+        
+        margin-right: 40px;
+        width: 50%;
+      }
+      .img{
+        display: flex;
+      }
+      .img p{
+        margin-top: 100px;
+        margin-left: 40px;
+        width: 50%;
+      }
+      
+        .team-member img {
+          width: 30%;
+          border-radius: 50px;
+        }
+        .team-member img:hover{
+        transform: scale(1.2);
+        
+        }
+
+    .team-members{
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .team-member{
+      width: 50%;
+      
+    }
+   p{
+    font-weight: 900;
+   }
+
+        h2 {
+          margin-bottom: 20px;
+          text-align: center;
+        }
+    
+        .about-list {
+          list-style: none;
+          padding: 0;
+
+        }
+        #learn{
+          text-align: center;
+        margin: 0 auto;
+        font-weight: 900;
+          width: 60%;
+          padding: 40px;
+        }
+    
+        .about-list li {
+          margin-bottom: 10px;
+          background-color: lawngreen;
+          padding: 30px;
+          border-radius: 5px;
+        }
+        .about-list li:hover{
+          background-color: #f00;
+          transform: scaleX(1.2);
+        }
+         .last{
+          margin-top: 40px;
+          text-align: center;
+          font-weight: 900;
+          font-size: 20px;
+        }
+
+        .last{ animation: glow 5s ease-in-out infinite;
+            
+             text-align: center;
+             }
+             @keyframes glow { 0%
+                 { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f00, 0 0 35px #f00, 0 0 40px #f00, 0 0 50px #f00, 0 0 75px #f00; } 
+             50% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 360px 15px #fff, 0 0 20px #0f0, 0 0 35px #0f0, 0 0 40px #0f0, 0 0 50px #0f0, 0 0 75px #0f0; } 
+             100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f00, 0 0 35px #f00, 0 0 40px #f00, 0 0 50px #f00, 0 0 75px #f00; } }
+        
+
+        
+    
+        @media screen and (max-width: 767px) {
+         .img img,
+         .img-2 img {
+            width: 100%;
+            margin-bottom: 20px;
+          }
+    
+         .img,
+         .img-2 {
+            flex-direction: column;
+          }
+        }
+        </style>
+</head>
+<body>
+    <%- include("_header123.ejs") %>
+    <main>
+        <section id="who-we-are">
+            <h2>About Us</h2>
+            <div class="img">
+                <img src="/images/housecomputer.webp" alt="">
+              <p>We are an organization tailored to give you the best experience while it comes to manage your investements in real estate 
+                and rental plus Housing by intergrating our innovative and user-friendly software solutions. 
+                Our mission is to help you streamline your  investments and improve their Income .</p>
+            </div>
+            
+          </section>
+          <p id="learn">We are a leading house rental management system that provides innovative and user-friendly software solutions for managing your investments in real 
+            estate and rental properties. Our mission is to help you streamline your investments and improve their income.</p>
+    <h2>Our Team</h2>
+    <div class="team-members">
+      <div class="team-member">
+        <img src="/images/peter.JPG" alt="Team Member 1">
+        <h3>Peter NJuguna</h3>
+        <p>CEO and Founder</p>
+      </div>
+      <div class="team-member">
+        <img src="/images/mercy.jpeg" alt="Team Member 2">
+        <h3>Mercy Briljant</h3>
+        <p>CTO and Co-Founder</p>
+      </div>
+      <div class="team-member">
+        <img src="/images/WhatsApp Image 2024-04-03 at 7.53.06 PM.jpeg" alt="Team Member 3">
+        <h3>Emmanuel Martin</h3>
+        <p> Software Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="/images/WhatsApp Image 2024-04-03 at 7.58.18 PM.jpeg" alt="Team Member 3">
+        <h3>Mike Johnson</h3>
+        <p> Software Developer</p>
+      </div>
+    </div>
+          <section id="what we do">
+            <h2>Our Services</h2>
+            <div class="img-2">
+              <img src="/images/r-architecture-2gDwlIim3Uw-unsplash.jpg" alt="">
+              <p>We offer the best and newly advanced digital house management services which is done through our website which on registration ,a domain is given dynamically just for you and your investements</p>
+              
+            </div>
+            <ul class="about-list">
+              <li>Lease management</li>
+              <li>Maintenance requests</li>
+              <li>Payment processing</li>
+              <li>Tenant screening</li>
+              <li>Property listings</li>
+              <li>And much more!</li>
+            </ul>
+            <p class="last">Contact us today to learn more about how we can help you streamline your investments and improve their income.</p>
+          </div>
+          </section>
+    
+    </main>
+</body>
+</html>

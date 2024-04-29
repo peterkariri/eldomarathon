@@ -1,0 +1,72 @@
+body{
+    background-image: url("/images/mohamed-nohassi-odxB5oIG_iA-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form-container {
+    animation: ease-in-out 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+.form-container.submit-animation {
+    animation: ease-out 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.signup-form {
+    border: 2px solid #00ff90;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px #00ff90;
+    animation: glow 2s ease-in-out infinite;
+}
+
+.signup-form input {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px #00ff90;
+}
+
+.signup-form input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ff90;
+}
+
+.signup-form button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #00ff90;
+    color: white;
+    cursor: pointer;
+}
+
+.signup-form button:hover {
+    background-color: #00b37e;
+}
+
+
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #00ff90;
+    }
+    50% {
+        box-shadow: 0 0 50px #00ff90;
+    }
+    100% {
+        box-shadow: 0 0 10px #00ff90;
+    }
+}

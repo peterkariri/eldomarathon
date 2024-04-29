@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landlord</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{
+      margin: 0;
+
+    }
+    main{
+      display: flex;
+    }
+    .land{
+      width: 20%;
+      background-color: chartreuse;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Landlord Dashboard</h1>
+    </header>
+
+  <main>
+    .
+    
+    <div class="land">
+      <%- include("_sidebar.ejs") %>
+    </div>
+    <div class="container">
+      <section class="summary">
+        <h2>Overview</h2>
+        <p><b>Properties:</b></p> <!-- property count -->
+        <p><b>Overdue Rents:</b></p><!-- overdue rents --> 
+        <p><b>Vacancy Rate:</b> </p><!-- vacancyrate and vacancy[logic to calculate rate}] -->
+      </section>
+  
+      <section class="actions">
+        <h2>Manage Your Properties</h2>
+        <ul>
+          <li>
+            <a href="/landlord/manage_properties">View All Properties</a>
+          </li>
+          <li>
+            <a href="/landlord/maintenance_requests">View Maintenance Requests</a> <!-- (add logic to link to maintenance requests page) -->
+          </li>
+          <li>
+            <a href="/landlord/tenant_information">Manage Tenant Applications</a><!--  (add logic to link to tenant applications page) -->
+          </li>
+        </ul>
+      </section>
+  
+      <section class="recent-activity">
+        <h2>Recent Activity</h2>
+        <ul>
+          <li>Peter submitted a new application for 123 Main St.</li>
+          <li>A plumbing leak was reported at 456 Elm St.</li>
+        </ul>
+      </section>
+    </div>
+   
+  </main>
+</body>
+</html>
+
+</body>
+</html>
