@@ -36,29 +36,78 @@ app.use(session({ secret:'point',resave:false,saveUninitialized:false,cookie:{ma
 
 //defining routes
 //protected routes
-app.use((req,res,next)=>{
-    const protectedRoutes =["/tenant/dashboard","/tenant/lease_details",'/tenant/maintenance_requests',
-
-    '/landlord/dashboard','/landlord/manage_properties',"/landlord/tenant_information"]
-    if(req.session && req.session.user ){
-        res.locals.user = req.session.user
-        next()
-    }else if(protectedRoutes.includes(req.path)){
-        // set redirectionhistorycookie cookie
-        let path = req.path
-        if (Object.keys(req.query).length > 0) {
-            const queryString = new URLSearchParams(req.query).toString();
-            path += `?${queryString}`;
-          }
-        res.cookie("redirectHistory", path, {
-            maxAge: 1000 * 60 * 60 * 24, // Expires in 24 hours
-            httpOnly: false, // Restricts access from client-side JavaScript
-        })
-        res.redirect("/login?message=login")
-    }else {
-        next()
-    }   
-})
+const maintenanceRequests = [
+  {
+    residence: "123 Main St",
+    tenantName: "John Doe",
+    roomNumber: "101",
+    maintenanceType: "Leaky Faucet",
+    urgency: "High",
+    status: false,
+    description: "Water is leaking from the base of the faucet in the bathroom sink. It seems to be getting worse and is causing a puddle on the floor.",
+  },
+  {
+    residence: "456 Elm St",
+    tenantName: "Jane Smith",
+    roomNumber: "202",
+    maintenanceType: "Clogged Drain",
+    urgency: "Medium",
+    status: false,
+    description: "The kitchen sink drain is clogged and water is not draining properly. I've tried using a plunger but it's not working.",
+  },
+  {
+    residence: "789 Oak St",
+    tenantName: "Bob Johnson",
+    roomNumber: "303",
+    maintenanceType: "Broken Light",
+    urgency: "Low",
+    status: false,
+    description: "The overhead light fixture in the living room is not working. I've tried replacing the bulb but that didn't fix it.",
+  },
+  // Add more requests here following the same structure
+  {
+    residence: "987 Maple St",
+    tenantName: "Alice White",
+    roomNumber: "404",
+    maintenanceType: "Faulty Outlet",
+    urgency: "Medium",
+    status: false,
+    description: "The electrical outlet in the bedroom is not working. It seems to have tripped the circuit breaker a few times.",
+  },
+  {
+    residence: "543 Pine St",
+    tenantName: "Charles Jones",
+    roomNumber: "212",
+  },
+];
+const protectedRoutes = [
+  "/tenant/dashboard",
+  "/tenant/lease_details",
+  "/tenant/maintenance_requests",
+  "/landlord/dashboard",
+  "/landlord/manage_properties",
+  "/landlord/tenant_information",
+];
+app.use((req, res, next) => {
+  if (req.session && req.session.user) {
+    res.locals.user = req.session.user;
+    next();
+  } else if (protectedRoutes.includes(req.path)) {
+    // Set redirection history cookie
+    let path = req.path;
+    if (Object.keys(req.query).length > 0) {
+      const queryString = new URLSearchParams(req.query).toString();
+      path += `?${queryString}`;
+    }
+    res.cookie("redirectHistory", path, {
+      maxAge: 1000 * 60 * 60 * 24, // Expires in 24 hours
+      httpOnly: false, // Restricts access from client-side JavaScript
+    });
+    res.redirect("/login?message=login");
+  } else {
+    next();
+  }
+});
 //public routes
 app.get('/',(req,res)=>{
    res.render("home.ejs")
@@ -117,7 +166,7 @@ app.get('/tenant/payment', (req, res) => {
 })
 
 app.get('/tenant/maintenance_requests',(req,res)=>{
-    res.render('tenant/maintenance_requests.ejs')
+    res.render('tenant/maintenance_requests.ejs',{maintenanceRequests})
 })
 //post routes for maintenance requests
 app.post('tenant/maintenance-requests', (req, res) => {
@@ -145,12 +194,14 @@ app.get('/landlord/dashboard', (req, res) => {
 app.get('/landlord/manage_properties', (req, res) => {
      res.render('landlord/manage_properties.ejs');
 });
-
+app.get('/landlord/payments', (req, res) => {
+  res.render('landlord/payment.ejs');
+});
 app.get('/landlord/tenant_information', (req, res) => {
     res.render('landlord/tenant_information.ejs');
 });
 app.get('/landlord/maintenance', (req, res) => {
-  res.render('landlord/maintenance.ejs');
+  res.render('landlord/maintenance.ejs',{maintenanceRequests});
 });
 
 app.get("/signup",(req,res)=>{
@@ -173,41 +224,69 @@ app.get("/login", (req,res)=>{
 //post routes
 
 //login routes
-app.post("/login", (req,res)=>{
-    const loginStatement = `SELECT * FROM users WHERE email = '${req.body.email}'`
-    connection.query(loginStatement, (sqlErr, userData)=>{
-        if(sqlErr){
-            console.log(sqlErr.message);
-            res.status(500).render("login.ejs", {error: true, message: "Server Error, Contact Admin if this persists!",  prevInput: req.body })
-        }else{
-            console.log(userData);
-            if(userData.length == 0){
-                res.status(401).render("login.ejs", {error: true,message: "Email or Password Invalid", prevInput: req.body })
-            }else{
-                if( bcrypt.compareSync(req.body.password,userData[0].password ) ){
-                    // create a session
-                     res.cookie("email",userData[0].email, {maxAge: 6000} )
-                    req.session.user = {
-                        id:userData[0].id,
-                        email:userData[0].email,
-                        tenantId:userData[0].id
-                    }
-                    // check if this was a redirection, we need to send them back to where they were. 
-                    // check if there is a cookie-- redirect history- 
-                    if(req.cookies.redirectHistory){
-                        let redirectPath = req.cookies.redirectHistory
-                        res.clearCookie("redirectHistory")
-                        res.redirect(redirectPath)
-                    }else{
-                        res.redirect("/")
-                    }                    
-                }else{
-                    res.status(401).render("login.ejs", {error: true,message: "Email or Password Invalid", prevInput: req.body })
-                }
-            }
-        }
-    })
-})
+app.post("/login",(req,res)=>{
+      // Get the email from the request body
+      const email = req.body.email;
+
+      // Define the login query with a parameterized placeholder
+      const loginStatement = `SELECT * FROM users WHERE email =?`;
+  
+      // Execute the query with the provided email
+      connection.query(loginStatement, [email], (sqlErr, userData) => {
+          if (sqlErr) {
+              // Log the error and render the login page with an error message
+              console.log(sqlErr.message);
+              res.status(500).render("login.ejs", {
+                  error: true,
+                  message: "Server Error, Contact Admin if this persists!",
+                  prevInput: req.body
+              });
+          } else {
+              // Check if the user exists
+              if (userData.length === 0) {
+                  // Render the login page with an error message
+                  res.status(401).render("login.ejs", {
+                      error: true,
+                      message: "Email or Password Invalid",
+                      prevInput: req.body
+                  });
+              } else {
+                  // Compare the provided password with the stored hash
+                  if (bcrypt.compareSync(req.body.password, userData[0].password)) {
+                      // Create a session
+                      res.cookie("email", userData[0].email, { maxAge: 6000 });
+                      req.session.user = {
+                          id: userData[0].id,
+                          email: userData[0].email,
+                          tenantId: userData[0].id
+                      };
+  
+                      // Check if this was a redirection and redirect the user back to where they were
+                      if (req.cookies.redirectHistory) {
+                        let redirectPath = req.cookies.redirectHistory;
+                        res.clearCookie("redirectHistory");
+                        res.redirect(redirectPath);
+                      } else {
+                        res.redirect("/");
+                      }
+                  } else {
+                      // Render the login page with an error message
+                      res.status(401).render("login.ejs", {
+                          error: true,
+                          message: "Email or Password Invalid",
+                          prevInput: req.body,
+                          
+                      }
+                     
+                    );
+                    console.log(err)
+                  }
+              }
+          }
+      });
+  });
+  
+
 
 //sign up
 app.post("/signup", (req,res)=>{

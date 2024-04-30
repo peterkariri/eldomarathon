@@ -1,0 +1,22 @@
+
+  .sidebar{
+    height: 100vh;
+    
+  }
+  #one li{
+    margin:80px  auto;
+    list-style-type: none;
+  }
+ 
+
+  #one li a{
+    text-decoration: none;
+    color:whitesmoke;
+  }
+
+  #one li a:hover{
+    background-color: grey;
+    padding: 20px;
+    border-radius: 8px;
+    color: rgba(104, 0, 0, 0.736);
+  }

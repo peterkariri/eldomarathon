@@ -4,61 +4,103 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landlord</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body{
-      margin: 0;
-
-    }
-    main{
-      display: flex;
-    }
-    .land{
-      width: 20%;
-      background-color: chartreuse;
-    }
-  </style>
+  <link rel="stylesheet" href="/stylesheet/dashboardl.css">
+  
 </head>
 <body>
-  <header>
-    <h1>Landlord Dashboard</h1>
-    </header>
-
-  <main>
-    .
     
-    <div class="land">
+  <main>
+    
+    <div class="aside">
       <%- include("_sidebar.ejs") %>
     </div>
+   
     <div class="container">
-      <section class="summary">
+      <div class="more">
+<section class="summary">
         <h2>Overview</h2>
         <p><b>Properties:</b></p> <!-- property count -->
         <p><b>Overdue Rents:</b></p><!-- overdue rents --> 
         <p><b>Vacancy Rate:</b> </p><!-- vacancyrate and vacancy[logic to calculate rate}] -->
       </section>
-  
+
+      <h2>Manage Your Properties</h2>
+      
       <section class="actions">
-        <h2>Manage Your Properties</h2>
-        <ul>
-          <li>
-            <a href="/landlord/manage_properties">View All Properties</a>
-          </li>
-          <li>
-            <a href="/landlord/maintenance_requests">View Maintenance Requests</a> <!-- (add logic to link to maintenance requests page) -->
-          </li>
-          <li>
-            <a href="/landlord/tenant_information">Manage Tenant Applications</a><!--  (add logic to link to tenant applications page) -->
-          </li>
-        </ul>
+      
+          <div class="span">
+            <div class="child-1">
+              <ul>
+                <li>
+                  <a href="/landlord/manage_properties">View All Properties</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="child-2">
+              <ul>
+              <li>
+                <a href="/landlord/maintenance_requests">View Maintenance Requests</a> <!-- (add logic to link to maintenance requests page) -->
+              </li>
+            </ul>
+            </div>
+             
+            
+          </div>
+          <div class="span">
+            <div class="child-1">
+              <ul>
+                <li>
+                  <a href="/landlord/tenant_information">Manage Tenant Applications</a><!--  (add logic to link to tenant applications page) -->
+                </li>
+              </ul>
+            </div>
+             <div class="child-2">
+              <ul>
+              <li>
+                <a href="/landlord/tenant_information">Apartments Without Tenant</a><!--  (add logic to link to tenant applications page) -->
+              </li>
+            </ul>
+             </div>
+              
+          
+          </div>
+          
+      
+        
       </section>
+      </div>
+      
   
       <section class="recent-activity">
         <h2>Recent Activity</h2>
-        <ul>
-          <li>Peter submitted a new application for 123 Main St.</li>
-          <li>A plumbing leak was reported at 456 Elm St.</li>
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tenant Name</th>
+              <th>House Number</th>
+              <th>Maintenance Request</th>
+              <th>New Tenant Request</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+<!--              maintenanceRequests.forEach(request => logic make it all dynamic
+ -->              <tr>
+                <td>reuest id</td>
+                <td>name</td>
+                <td>hnumber</td>
+                <td>maintenance </td>
+                <td>tenant request</td>
+                <td>
+                  <input type="checkbox" >
+                  <label for="request id ">Done</label>
+                </td>
+              </tr>
+            
+          </tbody>
+        </table>
       </section>
     </div>
    

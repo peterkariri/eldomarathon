@@ -1,55 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="/stylesheet/_sidebar.css">
+</head>
+<body>
+  
 <aside class="sidebar">
   <nav class="menu">
-    <ul>
+    <ul id="one">
       <li>
-        <a href="/landlord/dashboard1.ejs" id="landdashboard" target="_parent">
+        <a href="/landlord/dashboard" id="landdashboard" target="_parent">
         
           <span>Dashboard</span>
         </a>
       </li>
       <li>
-        <a href="/landlord/manage_properties.ejs" id="manage-prop" target="_parent">
+        <a href="/landlord/manage_properties" id="manage-prop" target="_parent">
         
-          <span>Manage property</span>
+          <span>Manage</span>
         </a>
       </li>
       <li>
-        <a href="/landlord/tenant_information.ejs" id="tenant-info" target="_parent">
-        
-          <span>Payments</span>
+        <a href="/landlord/payments" id="payment" target="_parent">
+          
+          <span>Payment</span>
         </a>
       </li>
       <li>
-        <a href="/landlord/maintenance.ejs" id="maintenance-requests-link" target="_parent">
+        <a href="/landlord/tenant_information" id="tenant-info" target="_parent">
+        
+          <span>Tenant</span>
+        </a>
+      </li>
+      <li>
+        <a href="/landlord/maintenance" id="maintenance-requests-link" target="_parent">
           
           <span>Maintenance</span>
         </a>
       </li>
-    
+       
+       <li><a href="/landlord/settings" target="_parent">Settings</a></li>
+       <li><a href="/logout" target="_parent" style="color: red;">logout</a></li>
+
+
+
     </ul>
   </nav>
 </aside>
-<style>
-  .sidebar{
-    height: 100vh;
-    
-  }
-  ul li{
-    gap: 30px;
-    margin: 100px auto;
-    list-style-type: none;
-  }
+</body>
+</html>
 
-  ul li a{
-    text-decoration: none;
-    color:whitesmoke;
-  }
 
-  ul li a:hover{
-    background-color: grey;
-    padding: 20px;
-    border-radius: 8px;
-    transform: scale(1);
-    color: rgba(104, 0, 0, 0.736);
-  }
-</style>
