@@ -118,6 +118,9 @@ app.get('/about',(req,res)=>{
  app.get('/services',(req,res)=>{
     res.render("services.ejs")
  })
+ app.get('/contact',(req,res)=>{
+  res.render("contact.ejs")
+})
 //tenants` routes
 app.get('/tenant/dashboard', (req, res) => {
     const tenantId = req.session.user.tenantId;

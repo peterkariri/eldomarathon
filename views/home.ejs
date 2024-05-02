@@ -9,60 +9,152 @@
 <body>
   
   <header>
-    <%- include("_headerhome.ejs") %>
+   <%- include("_headerhome.ejs") %>
   </header>
+  
   <div class="container">
 
     <main>
      
-     <div class="header">
-      <h1>Modern House Make A Better Life </h1>
-        <p>With times Changing drastically,we have decided to bring the best of technology to intergret with your house network
-          <br>Do not be left behind !!!Go with the change
+     <section class="intro">
+      <div class="word">
+        <h1>Modern House Make A Better Life </h1>
+        <p>With times Changing drastically,we have decided to bring the best of technology to intergret with your house network 
+          and to improve usability ,maintenance and payments.
+          Do not be left behind !!!Go with the change
         </p>
+          <div class="buttons">
+        <!--    add a property page  --><a href="/properties" ><button type="submit" class="learn" id="one">Get Started</button></a>
 
-        <a href="/about"><button type="submit" class="learn">LEARN MORE</button></a>
-     </div>
-        
-     <div class="more">
-      <a href="/login"><button type="submit" class="btn-1">Lease Property</button></a> 
-    <a href="/login"><button type="submit" class="btn-2">Rent Property</button>s</a>
-   </div>
-    </main>
-   
-    <div class="next">
-      <div class="child">
-        <p id="pp">ENTER KEYWORD</p>
-        <h3>Enter keyword</h3>
+            <a href="/about" ><button type="submit" class="learn" id="two">LEARN MORE</button></a>
+
+          </div>
+      </div>
+      <div class="img-1">
+        <img src="/images/r-architecture-2gDwlIim3Uw-unsplash.jpg" alt="">
       </div>
       
-      <div class="child">
-
-        <label for="bedrooms">Bedrooms:</label>
-        <select id="bedrooms">
-          <option value=""></option>
-          <option value="1">One Bedroom</option>
-          <option value="2">Two Bedrooms</option>
-          <option value="3">Three Bedrooms</option>
-          <option value="4">Four Bedrooms</option>
-        </select>
+    </section>
         
+
+  <section class="section">
+
+      <div class="child-1">
+        <div class="child-2">
+         <h1>
+          Who We are and What We Offer
+         </h1>
+         <p>we are a housing management webplatform that gives our clients thebest user interface 
+          where to locate the desired property and also manage every transaction of the house
+         </p>
+
+         <div class="button-1">
+          <a href="/services"><button type="submit">VIEW OUR SERVICE</button></a>
+         </div>
+        </div>
+        <div class="child-3">
+          <div class="parent">
+            <div class="immediate">
+              <img src="/images/lease1.jpeg" alt="">
+              <img src="/images/maintenance1.jpeg" alt="">
+            </div>
+            <div class="second">
+              <img src="/images/payment2.jpeg" alt="">
+              <img src="/images/screenig.jpeg" alt="">
+
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="child">
-        <p id="pp">LOCATION</p>
-        <h3><a href="/googlemaps.com">Search Location</a></h3>
+    </section>
+      
+     <section class="three">
+  <div class="bigger">
+    <div class="create-1">
+      <div class="chi">
+        <h2>One Bedroom</h2>
+        <p>Find yourself in a lavishingly on bedroom house with well equipped 
+          installation and safety instruments at ana affordable price.
+        </p>
       </div>
-      <div class="child">
-        <p id="pp">PRICE LIMIT</p>
-        <h3>negotiable</h3>
-      </div>
-      <div class="child-2">
-        <a href="/login" class="get">Get Started</a>
-      </div>
+    <div class="init">
+      <img src="/images/one bed.jpeg" alt="one bedroom" id="kudos">
+
     </div>
-  </div>
-  
- <%- include('_footer.ejs') %>
+    </div>
+    <div class="create-1">
+      <div class="chi">
+        <h2>Two  Bedroom</h2>
+        <p>no need to search again ,if you want to think bigger we have you covered with our 
+          two bedroom rental apartmanets tailored to meet your standards.</p>
+        </p>
+      </div>
+      <div class="init">
+        <img src="/images/two bedroom.jpeg" alt="two bedroom">
+
+      </div>
+      </div>
+      <div class="create-1">
+        <div class="chi">
+          <h2>Three Bedroom</h2>
+          <p>if you want to raise a family ,we got you covered with three bedroom rental apartments 
+            which are affordable and have a master bedroom for luxury.
+          </p>
+        </div>
+        <div class="init">
+          <img src="/images/3-bedroom-floor-plan-1024x768-1.jpg" alt="three bedroom">
+
+        </div>
+        
+        </div>
+
+       </div>
+     </section>
+        
+     <section class="contact">
+      <div class="big">
+        <h1>Contact Us</h1>
+        <p>we are always at your service and you can reach out to us at any time
+          ,you can turn on location to view our different estates in your region.
+        </p>
+
+      </div>
+      <div class="location">
+        <div class="locale">
+          <h1>Location</h1>
+          <span>30100,Eldoret</span>
+          <span>Eldoret City,Kenya</span>
+          <span>0715230825</span>
+        </div>
+        <div class="imagine">
+          
+          <iframe width="100%" height="400" id="map" frameborder="0" style="border:0;"
+  allowfullscreen aria-hidden="false" tabindex="0">
+  </iframe>
+        </div>
+      </div>
+     </section>
+</main>
+    <footer>
+      <div class="father">
+        <h1>Hours</h1>
+        <span>Monday-Friday</span>
+        <span>8am-6pm</span>
+      </div>
+      <div class="father">
+        <h1>Social</h1>
+        <span><a href="www/facebook.com">facebook</a></span>
+        <span><a href="#">instagram</a></span>
+        <a href="#">TikTok</a>
+      </div>
+      <div class="father">
+        <h1>Ulinzi Rentals</h1>
+        <span>30100,Eldoret City</span>
+        <span>Eldoret,Kenya</span>
+        <span>info@ulinziapartments.com</span>
+        <span>0715230825</span>
+      </div>
+    </footer>
 
 </body>
 </html>

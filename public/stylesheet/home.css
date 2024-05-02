@@ -4,152 +4,189 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url(/images/r-architecture-2gDwlIim3Uw-unsplash.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+
     padding: 0;
 
   }
+  .intro{
+    display:flex ;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 100px;
+  }
+main{
 
-  .img-2{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    margin-top: 50px;
-  }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-    display: grid;
-    margin-bottom: 50px;
-  }
-  .child select{
-    margin-top: 30px;
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .header p{
-    margin: 0 auto;
-    margin-top: 50px;
-  }
-  .learn{
-    background-color: lawngreen;
-    margin: 80px 50px auto;
-    height: 40px;
+  margin: 0 auto;
+}
+  .word{
     width: 30%;
-    color: whitesmoke;
-    border: none;
-    font-weight: 900;
-  }
+    margin: 100px auto;
 
-  
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 50px;
-    color:white;
-    width: 40%;
-    margin: 0 auto;
-    font-weight: 900;
-    
+
   }
-  
-  p {
-    font-size: 1rem;
-    color:white;
-    width: 60%;
+  .word h1{
+    font-size: 50px;
     font-weight: 900;
   }
-  .btn-1{
-    margin-right: 1%;
-    width: 100%;
-    height: 40px;
-    border: none;
-  }
-  .btn-2{
-    background-color: rgb(120, 217, 23);
-    width: 100%;
-    height: 40px;
-    color: white;
-    border: none;
-  }
+  .section{
+    margin-top: 100px;
   
-  section {
-    margin-bottom: 30px;
   }
-  .more{
+  .word p{
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 60px;
+    
+  }
+  .buttons{
     display: flex;
-    position: absolute;
-    left:40%;
-    bottom: 25px;
-    
-    
-    
-  }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    text-align: center;
-    color:blue;
-    text-decoration: underline;
-    margin-top: 50px;
-    font-weight: 900
-    ;
-  }
-  
-  p {
-    font-size: 1.1rem;
-    margin: 0;
-  }
-  a{
-    margin-right: 5px;
     width: 100%;
-    color: red;
-    text-decoration: none;
+    gap: 20px;
   }
-  .next{
-    display: flex;
+  button{
+    padding: 20px;
+
+  }
+  #one{
+    color:white;
+    background-color: black;
+  }
+  #one:hover{
     background-color: white;
     color: black;
-    position: relative;
-    top: 80px;
-
-    box-shadow: 0px 0px 5px 1px black;
-    justify-content: space-around;
   }
-  #pp{
-    color: black;
-    width: 100%;
-    padding-top: 30px;
-    margin-right: 50px;
-    font-size: 15px;
-    font-weight: 900;
-    
-  }
-
-  .child{
-    border-right: solid grey 1px;
-  }
-  h3{
-
-    color: grey;
-    font-size: 11px;
-     padding-bottom: 20px;
-  }
-  .child-2 {
-     background-color: lawngreen;
-     color: white;
-     justify-content: center;
-
-  }
-  .child-2 a{
+  #two:hover{
     color: white;
-    top: 30px;
-    position: relative;
+    background-color:black;
   }
+
+  .img-1{
+    align-items: center;
+   
+  overflow: hidden; /* Clip overflowing parts of the image */
+  border-radius: 0% 50% 0% 0%; /* Set border radius for a quarter circle */
+  width: 50%; /* Adjust width as needed */
+  
+  }
+  .img-1 img{
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .child-1{
+  display: flex;
+  justify-content: space-between;
+  }
+  .child-2{
+    width: 30%;
+    margin: 50px auto;
+  }
+  .child-2 h1{
+    font-size: 50px;
+    font-weight: 900;
+    margin-top: 30%;
+  }
+  .child-2 p{
+    font-size: 20px;
+   line-height: 30px;
+  }
+  .child-3{
+    width: 50%;
+  }
+  .button-1 button{
+    background-color: black;
+    color: white;
+  }
+  .parent{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+  .immediate,.second{
+    display: flex;
+    gap: 20px;
+  }
+  .parent img{
+    width: 100%;
+  }
+ .bigger{
+  display: flex;
+ }
+ .three{
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-bottom: 100px;
+ }
+ .create{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+ }
+ .init{
+  width: 50%;
+
+ }
+ .chi h2{
+  font-size: 36px;
+  font-weight: 800;
+ }
+ .chi p{
+  font-size: 20px;
+  line-height: 25px;
+ }
+.chi{
+  width: 65%;
+}
+ .bigger img{
+  width:100%;
+ }
+ .contact{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+ }
+ .big{
+  width: 100%;
+ }
+ .location{
+  display: flex;
+  width: 100%;
+ 
+
+ }
+
+ .imagine{
+  width: 100%;
+  float: right;
+ }
+.contact h1{
+  font-size: 35px;
+}
+.contact p{
+  font-size: 20px;
+}
+footer{
+  display: flex;
+  justify-content: space-between;
+  background-color:rgb(219, 214, 214);
+  padding: 5%;
+  
+
+}
+.father{
+  display:flex ;
+  flex-direction: column;
+  color: black;
+}
+.father h1{
+  font-size: 30px;
+  font-weight: 900;
+}
+.father span{
+  font-size: 20px;
+}
+.father a{
+  color: black;
+  line-height: 25px;
+
+}
