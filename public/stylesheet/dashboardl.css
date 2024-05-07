@@ -61,6 +61,7 @@ body {
 .child-1:hover {
   background-color: rgb(21, 21, 53);
   transform: scale(1.2);
+  color: white;
   border-radius: 8px;
 }
 
@@ -72,6 +73,7 @@ body {
   background-color: rgb(62, 6, 62);
   transform: scale(1.2);
   border-radius: 8px;
+  color: white;
 }
 
 .span ul {
@@ -95,4 +97,93 @@ body {
 
 .recent-activity ul li {
   margin-bottom: 10px;
+}
+/* Mobile devices */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+    margin: 0;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .menu{
+    float: right;
+  }
+.container{
+  margin: 0;
+}
+  header {
+    flex-direction: column;
+  }
+  .aside{
+    display: none;
+    
+  }
+
+ .logo {
+    margin-bottom: 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+ .contact {
+    flex-direction: column;
+  }
+
+ .contact button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+ .aside {
+    width: 100%;
+  }
+
+ .container {
+    width: 100%;
+  }
+
+ .summary {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+
+ .summary p {
+    margin-bottom: 10px;
+  }
+
+ .actions {
+    flex-direction: column;
+  }
+
+ .span {
+    width: 100%;
+  }
+
+ .span.child-1,
+ .span.child-2 {
+    width: 100%;
+  }
+  .recent-activity {
+    width: 100%;
+    margin: 0;
+  }
+ .recent-activity table {
+    width: 100%;
+  }
+
+ .recent-activity th,
+ .recent-activity td {
+    padding: 10px;
+  }
 }

@@ -56,6 +56,35 @@
   font-size: 1.2em;
   margin-top: 20px;
 }
+  /* Layout for larger screens */
+  @media (min-width: 768px) {
+      .container {
+        margin-left: 250px;
+        padding: 20px;
+      }
+
+      .aside {
+        background-color: #333;
+        color: #fff;
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+      }
+    }
+
+    /* Layout for smaller screens */
+    @media (max-width: 767px) {
+      .container,
+      .aside {
+        width: 100%;
+        padding: 10px;
+      }
+
+      .aside {
+        position: static;
+        margin-bottom: 20px;
+      }
+    }
 </style>
 </head>
 <body>

@@ -195,6 +195,7 @@ app.get('/landlord/dashboard', (req, res) => {
 });
 
 app.get('/landlord/manage_properties', (req, res) => {
+  
      res.render('landlord/manage_properties.ejs');
 });
 app.get('/landlord/payments', (req, res) => {
