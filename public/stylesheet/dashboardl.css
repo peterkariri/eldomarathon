@@ -29,6 +29,9 @@ body {
   background-color: #ddd;
   padding: 20px;
   margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: rgb(142, 80, 142);
+  color: white;
 }
 
 .actions {
@@ -48,11 +51,17 @@ body {
   background-color: #eee;
   width: 60%;
 }
+.span a:hover{
+  color: white;
+  width: 100%;
+}
 .child-1{
   width: 50%;
+  border-radius: 15px;
 }
 .child-2{
   width: 50%;
+  border-radius: 15px;
 }
 .child-1 {
   transition: all 1s;
