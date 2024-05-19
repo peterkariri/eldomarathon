@@ -13,12 +13,18 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: sticky;
+  top: 0;
+  height: 180px;
+  box-shadow: 0px 0px 10px 10px black;
 }
+
 body{
   margin: 0;
   padding:0;
 
 }
+
 .logo,
 .contact {
   display: flex;
@@ -41,10 +47,15 @@ nav ul li {
 
 }
 nav ul li a{
+  list-style-type: none;
+   text-decoration: none;
   color: black;
   font-size: 20px;
 }
-
+nav ul li a:hover{
+  text-decoration: underline;
+  color: lawngreen;
+}
 nav ul li:last-child {
   margin-right: 0;
 }
@@ -63,6 +74,9 @@ nav ul li:last-child {
         border-radius: 10px;
         display: flex;
         gap: 40px;
+      }
+      .logo img{
+        width: 63%;
       }
 
       .logo h1{
@@ -99,7 +113,17 @@ nav ul li:last-child {
     </div>
 
   </header>
-  
+  <script>
+    const header = document.querySelector('header');
+
+   window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 100) {
+    header.style.backgroundColor = 'green';
+  } else {
+    header.style.backgroundColor = 'transparent';
+  }
+});
+  </script>
 
 </body>
                

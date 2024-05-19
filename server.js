@@ -7,6 +7,9 @@ const bcrypt=require("bcrypt")
 const session=require("express-session");
 const cookieParser=require("cookie-parser");
 const { log } = require('console');
+const multer=require('multer')
+
+
 //creating sql connection
 const connection = mysql.createConnection({
     host: 'localhost', 
@@ -34,52 +37,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 app.use(session({ secret:'point',resave:false,saveUninitialized:false,cookie:{maxAge:3000000}}))
 
+//multer storage 
+const storage = multer.diskStorage({
+  destination:(req,file,cb)=>{
+    cb(null,'uploads/');
+  },
+  filename:(req,file,cb)=>{
+    cb(null,file.originalname)
+  }
+})
+
+
+
+
 //defining routes
 //protected routes
-const maintenanceRequests = [
-  {
-    residence: "123 Main St",
-    tenantName: "John Doe",
-    roomNumber: "101",
-    maintenanceType: "Leaky Faucet",
-    urgency: "High",
-    status: false,
-    description: "Water is leaking from the base of the faucet in the bathroom sink. It seems to be getting worse and is causing a puddle on the floor.",
-  },
-  {
-    residence: "456 Elm St",
-    tenantName: "Jane Smith",
-    roomNumber: "202",
-    maintenanceType: "Clogged Drain",
-    urgency: "Medium",
-    status: false,
-    description: "The kitchen sink drain is clogged and water is not draining properly. I've tried using a plunger but it's not working.",
-  },
-  {
-    residence: "789 Oak St",
-    tenantName: "Bob Johnson",
-    roomNumber: "303",
-    maintenanceType: "Broken Light",
-    urgency: "Low",
-    status: false,
-    description: "The overhead light fixture in the living room is not working. I've tried replacing the bulb but that didn't fix it.",
-  },
-  // Add more requests here following the same structure
-  {
-    residence: "987 Maple St",
-    tenantName: "Alice White",
-    roomNumber: "404",
-    maintenanceType: "Faulty Outlet",
-    urgency: "Medium",
-    status: false,
-    description: "The electrical outlet in the bedroom is not working. It seems to have tripped the circuit breaker a few times.",
-  },
-  {
-    residence: "543 Pine St",
-    tenantName: "Charles Jones",
-    roomNumber: "212",
-  },
-];
+
+
 const protectedRoutes = [
   "/tenant/dashboard",
   "/tenant/lease_details",
@@ -289,7 +263,21 @@ app.post("/login",(req,res)=>{
           }
       });
   });
-  
+  //multer upload 
+const upload = multer({ storage: storage })
+
+app.post('/profile', upload.single('avatar'), (req, res, next) => {
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+
+  // Save the file path to the database
+  const filePath = path.join('uploads/', req.file.filename);
+  // Save the file path to the database using your preferred method
+
+  // Send a response to the client
+  res.status(200).json({ message: 'Profile picture uploaded successfully', filePath: filePath });
+});
+
 
 
 //sign up

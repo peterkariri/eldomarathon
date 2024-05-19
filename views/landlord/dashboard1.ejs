@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landlord</title>
+  <title>Landlord</title> 
   <link rel="stylesheet" href="/stylesheet/dashboardl.css">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
@@ -21,17 +21,28 @@
     <span></span>
    </div>
     <div class="container">
-      <div class="more">
-<section class="summary">
+      <div class="bigger">
+        <section class="summary">
         
-        <h2>Hello there Welcome </h2>
-        <p><b>Properties:</b></p> <!-- property count -->
-        <p><b>Overdue Rents:</b></p><!-- overdue rents --> 
-        <p><b>Vacancy Rate:</b> </p><!-- vacancyrate and vacancy[logic to calculate rate}] -->
-      </section>
-
-      <h2>Manage Your Properties</h2>
+          <h2>Hello there Welcome </h2>
+          <p><b>Properties:</b></p> <!-- property count -->
+          <p><b>Overdue Rents:</b></p><!-- overdue rents --> 
+          <p><b>Vacancy Rate:</b> </p><!-- vacancyrate and vacancy[logic to calculate rate}] -->
+        </section>
+            <div class="first">
+              <h1>My Profile</h1>
+<!--                 import image from bakend and make it dynamic
+ -->            
+          <form action="/profile" method="post" enctype="multipart/form-data">
+              <input type="file" name="avatar" />
+          </form>
+            </div>
+        
+      </div>
       
+      <h2>Manage Your Properties</h2>
+      <div class="more">
+
       <section class="actions">
       
           <div class="span">
@@ -51,7 +62,6 @@
             </ul>
             </div>
              
-            
           </div>
           <div class="span">
             <div class="child-1">
@@ -75,6 +85,14 @@
       
         
       </section>
+      <section class="profile">
+          
+          <h2>location property</h2>
+          <div class="map">
+            //include map
+          </div>
+
+      </section>
       </div>
       
   
@@ -88,12 +106,14 @@
               <th>House Number</th>
               <th>Maintenance Request</th>
               <th>New Tenant Request</th>
+              <th>Status</th>
+              <th>Status</th>
               
             </tr>
           </thead>
           <tbody>
 <!--              maintenanceRequests.forEach(request => logic make it all dynamic
- -->              <tr>
+ -->          <tr>
                 <td>reuest id</td>
                 <td>name</td>
                 <td>hnumber</td>
@@ -103,14 +123,19 @@
                   <input type="checkbox" >
                   <label for="request id ">Done</label>
                 </td>
+                <td>
+                  <input type="checkbox" >
+                  <label for="request id "> Not Done</label>
+                </td>
               </tr>
             
           </tbody>
         </table>
       </section>
     </div>
-   
+          
   </main>
+
 </body>
 </html>
 

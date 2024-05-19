@@ -23,24 +23,39 @@ body {
 .container {
   margin-left: 230px;
   padding: 20px;
+  max-width: 2000px;
 }
-
+.bigger{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.more{
+  display: flex;
+  justify-content: space-between;
+}
 .summary {
   background-color: #ddd;
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: rgb(142, 80, 142);
   color: white;
+  width: 47%;
+
 }
 
 .actions {
   display: flex;
   justify-content: space-between;
+  width: 50%;
+  margin-bottom: 36px;
+
 }
 .child-1 ul li  a,.child-2 ul li a{
  color: black;
  text-decoration: none;
+
 }
 
 .span {
@@ -49,11 +64,14 @@ body {
   align-items: center;
   padding: 20px;
   background-color: #eee;
-  width: 60%;
+  width: 40%;
+  border-radius: 8px;
+
 }
 .span a:hover{
   color: white;
   width: 100%;
+
 }
 .child-1{
   width: 50%;
@@ -68,7 +86,7 @@ body {
 }
 
 .child-1:hover {
-  background-color: rgb(21, 21, 53);
+  background-color: rgba(21, 21, 53,0.5);
   transform: scale(1.2);
   color: white;
   border-radius: 8px;
@@ -79,7 +97,7 @@ body {
 }
 
 .child-2:hover {
-  background-color: rgb(62, 6, 62);
+  background-color: rgba(62, 6, 62,0.5);
   transform: scale(1.2);
   border-radius: 8px;
   color: white;
@@ -96,12 +114,18 @@ body {
 
 .recent-activity {
   background-color: #ddd;
-  padding: 20px;
+  padding: 25px;
+}
+.recent-activity {
+  align-items: center;
+  margin-right: 10px;
 }
 
-.recent-activity ul {
+.recent-activity th ,td{
   list-style-type: none;
-  padding: 0;
+  padding: 8px;
+  border-right: solid 1px black;
+
 }
 
 .recent-activity ul li {
